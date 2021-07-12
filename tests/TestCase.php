@@ -2,9 +2,9 @@
 
 namespace Hamza094\StorageMonitor\Tests;
 
+use Hamza094\StorageMonitor\StorageMonitorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Hamza094\StorageMonitor\StorageMonitorServiceProvider;
 
 class TestCase extends Orchestra
 {

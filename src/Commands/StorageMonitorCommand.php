@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Hamza094\StorageMonitor\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class StorageMonitorCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'storage-monitor';
 
     public $description = 'My command';
 

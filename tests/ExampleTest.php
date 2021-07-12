@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Hamza094\StorageMonitor\Tests;
 
 class ExampleTest extends TestCase
 {

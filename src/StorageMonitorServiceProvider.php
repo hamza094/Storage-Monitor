@@ -2,9 +2,9 @@
 
 namespace Hamza094\StorageMonitor;
 
+use Hamza094\StorageMonitor\Commands\StorageMonitorCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Hamza094\StorageMonitor\Commands\StorageMonitorCommand;
 
 class StorageMonitorServiceProvider extends PackageServiceProvider
 {

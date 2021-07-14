@@ -1,12 +1,12 @@
- <?php
+<?php
 
 namespace Hamza094\StorageMonitor\Http\Controllers;
 
 use Hamza094\StorageMonitor\Models\StorageMonitor;
 
-class DiskMetricsController
+class StorageMonitorController
 {
-    public function __invoke()
+    public function index()
     {
         $entries = StorageMonitor::latest()->get();
 

@@ -29,8 +29,8 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         
-        include_once __DIR__.'/../database/migrations/create_storage-monitor_table.php.stub';
-        (new \StorageMonitorsTable())->up();
+        include_once __DIR__.'/../database/migrations/create_storage_monitors_table.php.stub';
+        (new \StorageTable())->up();
         
     }
 }

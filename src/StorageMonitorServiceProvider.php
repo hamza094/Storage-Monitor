@@ -20,7 +20,7 @@ class StorageMonitorServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasRoutes('web')
-            ->hasMigration('create_storage-monitor_table')
+            ->hasMigration('create_storage_monitors_table')
             ->hasCommand(StorageMonitorCommand::class);
     }
 }

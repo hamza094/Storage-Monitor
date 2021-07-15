@@ -23,7 +23,7 @@ composer require hamza094/storage-monitor
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Hamza094\StorageMonitor\StorageMonitorServiceProvider" --tag="storage-monitor-migrations"
+php artisan vendor:publish --provider="Hamza094\StorageMonitor\StorageMonitorServiceProvider" --tag="storage_monitors-migrations"
 php artisan migrate
 ```
 

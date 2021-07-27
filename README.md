@@ -1,4 +1,4 @@
-# Storage-Monitor
+# Monitor metrics of Laravel storage
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hamza094/storage-monitor.svg?style=flat-square)](https://packagist.org/packages/hamza094/storage-monitor)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/hamza094/storage-monitor/run-tests?label=tests)](https://github.com/hamza094/storage-monitor/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/hamza094/storage-monitor.svg?style=flat-square)](https://packagist.org/packages/hamza094/storage-monitor)
 
 ## Description
-Package For Monitor Your Storage In Laravel Application
+laravel-storage-monitor can monitor the usage of the filesystems configured in Laravel. Currently only the amount of files a local storage contains is monitored.
 
 ## Support us
 
@@ -32,19 +32,53 @@ You can publish the config file with:
 php artisan vendor:publish --provider="Hamza094\StorageMonitor\StorageMonitorServiceProvider" --tag="storage-monitor-config"
 ```
 
+You can publish the view file with:
+```bash
+php artisan vendor:publish --provider="Hamza094\StorageMonitor\StorageMonitorServiceProvider" --tag="storage-monitor-views"
+```
+
 This is the contents of the published config file:
 
 ```php
 return [
+	/**
+	 * the names of the storage disk you want to monitor
+	 */
+  'storage_names'=> [
+  	'local'
+  ],
 ];
+```
+Finally, you should schedule the use Hamza094\StorageMonitor\Commands\StorageMonitorCommand
+ to run daily.
+
+```php
+// in app/Console/Kernel.php
+
+use \Hamza094\StorageMonitor\Commands\StorageMonitorCommand;
+
+class Kernel extends ConsoleKernel
+{
+    protected function schedule(Schedule $schedule)
+    {
+       // ...
+        $schedule->command(StorageMonitorCommand::class)->daily();
+    }
+}
 ```
 
 ## Usage
 
+You can view the amount of files each monitored disk has, in the storage_monitors table.
+
+If you want to view the statistics in the browser add this macro to your routes file.
+
 ```php
-$storage-monitor = new Hamza094\StorageMonitor();
-echo $storage-monitor->echoPhrase('Hello, Monitor!');
+// in a routes files
+
+Route::storageMonitor('storage-monitor-url');
 ```
+Now, you can see all statics when browsing /storage-monitor-url. Of course, you can use any url you want when using the diskMonitor route macro. We highly recommand using the auth middleware for this route, so guests can't see any data regarding your disks.
 
 ## Testing
 

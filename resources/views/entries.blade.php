@@ -1,20 +1,28 @@
-<h1>Storage metrics</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Disk name</th>
-            <th>File count</th>
-            <th>Recorded at</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="storage">
+    
+<h1>You Application Storage metrics</h1>
+<hr>
         @foreach($entries as $entry)
-            <tr>
-                <td>{{ $entry->storage_name }}</td>
-                <td>{{ $entry->file_count }}</td>
-                <td>{{ $entry->created_at->format('Y-m-d H:i:s') }}</td>
-            </tr>
+<div class="storage-para">
+             <p> <b>Disk name:</b>  <span>{{ $entry->storage_name }}</span> </p>
+              <p> <b>File count:</b> <span>{{ $entry->file_count }} files peresent currently</span> </p>
+               <p> <b>Recorded at:</b> <span>{{ $entry->created_at->diffForHumans() }}</span> </p>
+</div>
         @endforeach
-    </tbody>
-</table>
+</div>
+
+<style type="text/css">
+    .storage{
+        margin: 5rem;
+    }
+    h1{
+        text-align: center;
+    }
+    .storage-para{
+        text-align: center;
+    }
+    span{
+        font-size:20px;
+    }
+
+</style>

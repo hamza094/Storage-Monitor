@@ -2,14 +2,13 @@
 
 namespace Hamza094\StorageMonitor\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use Illuminate\Database\Eloquent\Model;
 
 class StorageMonitor extends Model
 {
-	use HasFactory;
+    use HasFactory;
 
     protected $guarded = [];
 
@@ -21,5 +20,4 @@ class StorageMonitor extends Model
     {
         return static::orderByDesc('id')->first();
     }
-
 }

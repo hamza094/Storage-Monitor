@@ -2,11 +2,11 @@
 
 namespace Hamza094\StorageMonitor\Commands;
 
-use Illuminate\Support\Facades\Storage;
+use Hamza094\StorageMonitor\Models\StorageMonitor;
 
 use Illuminate\Console\Command;
 
-use Hamza094\StorageMonitor\Models\StorageMonitor;
+use Illuminate\Support\Facades\Storage;
 
 class StorageMonitorCommand extends Command
 {
@@ -22,17 +22,17 @@ class StorageMonitorCommand extends Command
         $this->comment('All done!');
     }
 
-   protected function recordMetrics(string $storageName):void
-   {
-     $this->info("Recording metrics for storage `{$storageName}`...");  
-     
-     $file= Storage::disk($storageName);
-   
-     $fileCount=count($file->allFiles());
+    protected function recordMetrics(string $storageName): void
+    {
+        $this->info("Recording metrics for storage `{$storageName}`...");
 
-     StorageMonitor::create([
-         'storage_name'=>$storageName,
-         'file_count'=>$fileCount
+        $file = Storage::disk($storageName);
+
+        $fileCount = count($file->allFiles());
+
+        StorageMonitor::create([
+         'storage_name' => $storageName,
+         'file_count' => $fileCount,
         ]);
-   }
+    }
 }
